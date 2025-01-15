@@ -1,103 +1,104 @@
 # Audio2Text
 
+# Audio Transcription App
+
 This repository contains a Python-based web application for transcribing audio files into text using OpenAI's Whisper model and Gradio. The app provides a user-friendly interface for uploading audio files and receiving the transcribed text.
 
-Features
+## Features
 
-Speech Recognition: Utilizes OpenAI's Whisper-tiny.en model for automatic speech recognition.
+- **Speech Recognition**: Utilizes OpenAI's Whisper-tiny.en model for automatic speech recognition.
+- **Batch Processing**: Processes audio files in chunks for efficient transcription.
+- **Gradio Interface**: Provides an interactive web-based UI for uploading audio and viewing transcription results.
 
-Batch Processing: Processes audio files in chunks for efficient transcription.
-
-Gradio Interface: Provides an interactive web-based UI for uploading audio and viewing transcription results.
-
-Requirements
+## Requirements
 
 To run this application, you need the following dependencies:
 
-torch
-
-transformers
-
-gradio
+- `torch`
+- `transformers`
+- `gradio`
 
 Install them using pip:
 
+```bash
 pip install torch transformers gradio
+```
 
-Usage
+## Usage
 
-Clone the repository:
+1. Clone the repository:
 
+```bash
 git clone https://github.com/mohammad5994/Audio2Text.git
-cd Audio2Text
+cd audio-transcription-app
+```
 
-Run the script:
+2. Run the script:
 
-python app.py
+```bash
+python audio_summarizer.py
+```
 
-Open the web application:
+3. Open the web application:
 
-The application will launch on http://127.0.0.1:7860 by default.
+   - The application will launch on `http://127.0.0.1:7860` by default.
 
-Upload an audio file:
+4. Upload an audio file:
 
-Drag and drop or upload an audio file through the interface.
+   - Drag and drop or upload an audio file through the interface.
+   - View the transcription result in the text box.
 
-View the transcription result in the text box.
+## How It Works
 
-How It Works
+1. **Model Initialization**:
 
-Model Initialization:
+   - The application initializes a Hugging Face pipeline for automatic speech recognition using the `openai/whisper-tiny.en` model.
 
-The application initializes a Hugging Face pipeline for automatic speech recognition using the openai/whisper-tiny.en model.
+2. **Audio Processing**:
 
-Audio Processing:
+   - The uploaded audio file is segmented into 30-second chunks for efficient transcription.
+   - The model processes these chunks and returns the transcribed text.
 
-The uploaded audio file is segmented into 30-second chunks for efficient transcription.
+3. **Gradio Interface**:
 
-The model processes these chunks and returns the transcribed text.
+   - The Gradio library creates an interactive interface for uploading audio files and displaying transcriptions.
 
-Gradio Interface:
+## Example
 
-The Gradio library creates an interactive interface for uploading audio files and displaying transcriptions.
+1. Upload an audio file containing a spoken sentence.
+2. The application will display the transcribed text, e.g.:
 
-Example
-
-Upload an audio file containing a spoken sentence.
-
-The application will display the transcribed text, e.g.:
-
+```
+Audio Input: "Hello, how can I help you today?"
 Transcribed Text: "Hello, how can I help you today?"
+```
 
-Customization
+## Customization
 
-Model Choice:
+- **Model Choice**:
 
-Replace "openai/whisper-tiny.en" with a different Whisper model for varying accuracy and performance.
+  - Replace `"openai/whisper-tiny.en"` with a different Whisper model for varying accuracy and performance.
 
-Chunk Size:
+- **Chunk Size**:
 
-Adjust chunk_length_s=30 to process longer or shorter audio segments at a time.
+  - Adjust `chunk_length_s=30` to process longer or shorter audio segments at a time.
 
-Interface Design:
+- **Interface Design**:
 
-Modify title and description in the Gradio interface to suit your application's theme.
+  - Modify `title` and `description` in the Gradio interface to suit your application's theme.
 
-Limitations
+## Limitations
 
-The transcription quality depends on the audio clarity and the selected model.
+- The transcription quality depends on the audio clarity and the selected model.
+- Processing time may increase for longer audio files or on less powerful hardware.
 
-Processing time may increase for longer audio files or on less powerful hardware.
+## Acknowledgments
 
-Acknowledgments
+- [Hugging Face Transformers](https://huggingface.co/docs/transformers/index) for the Whisper model.
+- [Gradio](https://gradio.app/) for the interactive interface.
+- OpenAI for the Whisper model.
 
-Hugging Face Transformers for the Whisper model.
+## License
 
-Gradio for the interactive interface.
-
-OpenAI for the Whisper model.
-
-License
-
-This project is licensed under the Apache2.0 License. See the LICENSE file for details.
+This project is licensed under the Apache2.0 License. See the `LICENSE` file for details.
 
