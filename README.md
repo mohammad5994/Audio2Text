@@ -69,7 +69,6 @@ python audio_summarizer.py
 2. The application will display the transcribed text, e.g.:
 
 ```
-Audio Input: "Hello, how can I help you today?"
 Transcribed Text: "Hello, how can I help you today?"
 ```
 
